@@ -1,13 +1,13 @@
 ### Site info:
-title: 天气不错
-tagline: 嗯嗯，我也觉得
+title: Weather No Wrong
+tagline: 天气不错
 author: 季峰
 email: 467318976@qq.com
 description: "看样子记录一下感想还是十分必要的" # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
 keywords: "Jekyll, theme, Freshman21"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://blog.weathernowrong.com/" # the base hostname & protocol for your site
-locale: en_US
+url: "http://blog.weathernowrong.com" # the base hostname & protocol for your site
+locale: cn
 
 ### Personal info and site tools info:
 github_username:  jeffssss
