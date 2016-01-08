@@ -164,9 +164,15 @@ NSDictionary *vcfPart = [NSDictionary dictionaryWithObjectsAndKeys:[NSString str
 
 其中的重点是修改了filename，对其进行处理。
 
-例如：=?UTF-8?B?5LiA5Y+35bqXNOWRqOW5tOW6hu+8jDEwMDDkuIfku7bng63plIA=?=
+例如：
 
-这个是邮件头的编码格式，B表示是Base64编码，UTF-8表示字符集的编码。`5LiA5Y+35bqXNOWRqOW5tOW6hu+8jDEwMDDkuIfku7bng63plIA=`就是标题base64之后的结果。
+	=?UTF-8?B?5LiA5Y+35bqXNOWRqOW5tOW6hu+8jDEwMDDkuIfku7bng63plIA=?=
+
+这个是邮件头的编码格式，B表示是Base64编码，UTF-8表示字符集的编码。
+
+	5LiA5Y+35bqXNOWRqOW5tOW6hu+8jDEwMDDkuIfku7bng63plIA=
+
+就是标题base64之后的结果。
 
 使用这个就可以使附件的中文名不再乱码。
 

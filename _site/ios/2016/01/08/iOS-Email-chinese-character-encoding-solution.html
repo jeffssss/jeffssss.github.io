@@ -258,9 +258,17 @@
 
 <p>其中的重点是修改了filename，对其进行处理。</p>
 
-<p>例如：=?UTF-8?B?5LiA5Y+35bqXNOWRqOW5tOW6hu+8jDEwMDDkuIfku7bng63plIA=?=</p>
+<p>例如：</p>
 
-<p>这个是邮件头的编码格式，B表示是Base64编码，UTF-8表示字符集的编码。<code>5LiA5Y+35bqXNOWRqOW5tOW6hu+8jDEwMDDkuIfku7bng63plIA=</code>就是标题base64之后的结果。</p>
+<pre><code>=?UTF-8?B?5LiA5Y+35bqXNOWRqOW5tOW6hu+8jDEwMDDkuIfku7bng63plIA=?=
+</code></pre>
+
+<p>这个是邮件头的编码格式，B表示是Base64编码，UTF-8表示字符集的编码。</p>
+
+<pre><code>5LiA5Y+35bqXNOWRqOW5tOW6hu+8jDEwMDDkuIfku7bng63plIA=
+</code></pre>
+
+<p>就是标题base64之后的结果。</p>
 
 <p>使用这个就可以使附件的中文名不再乱码。</p>
 
