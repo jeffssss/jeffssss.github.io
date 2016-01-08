@@ -43,9 +43,7 @@ tags:
 
 <h2 id="skpsmtpmessage">skpsmtpmessage介绍</h2>
 
-github地址：[https://github.com/jetseven/skpsmtpmessage](https://github.com/jetseven/skpsmtpmessage)
-
-skpsmtpmessage 简单的封装了SMTP协议，让你的app可以发送邮件。它是手动封装的，有很大的自由度，可以在后台发送请求，从而`自动发送`邮件。
+skpsmtpmessage 简单的封装了SMTP协议，让你的app可以发送邮件。它是手动封装的，有很大的自由度，可以在后台发送请求，从而`自动发送`邮件。skpsmtpmessage源码见[github](https://github.com/jetseven/skpsmtpmessage)
 
 需要注意的一点是，你最好
 >To use this in your app, add the files in the SMTPLibrary directory to your project.
