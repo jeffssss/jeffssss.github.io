@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html>
 
-{% include head.html %}
+  {% include head.html %}
 
-<body>
+  <body>
 
-<div class="container">
+    {% include sidebar.html %}
+      
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.x-git.min.js"></script>
+      
+    <!-- Bootstrap Core JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-  {% include header.html %}
+    <script src="{{ site.baseurl }}/js/index.js"></script>
 
-  {% if site.default_column == "two" %}  
+  </body>
 
-  <div class="page-content col-sm-8">
-    {{ content }}
-    {% include post_pagination.html %}
-  </div>
-  {% include sidebar.html %}
-
-  {% else %}
-
-  <div class="page-content">
-    <div class="wrapper">
-      {{ content }}
-    </div>
-  </div>
-  {% include post_pagination.html %}
-
-  {% endif %}
-
-  {% include footer.html %}
-
-</div>
-
-</body>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+    
+    <script>
+    $(document).ready(function(){
+    $('#page-content-wrapper').fadeIn();
+    });
+    </script>
 
 </html>

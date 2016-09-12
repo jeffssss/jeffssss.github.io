@@ -1,68 +1,19 @@
-### Site info:
+# Site settings
 title: Weather No Wrong
-tagline: 天气不错
-author: 季峰
 email: 467318976@qq.com
-description: "看样子记录一下感想还是十分必要的" # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
-keywords: "Jekyll, theme, Freshman21"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://blog.weathernowrong.com" # the base hostname & protocol for your site
-locale: cn
+#url: "http://yourdomain.com" # the base hostname & protocol for your site
 
-### Personal info and site tools info:
-github_username:  jeffssss
-disqus_shortname: weathernowrong
-favicon:     "/images/favicon.ico"
-aboutme: 码农一枚，没了。 # these are shown on aboutme-sidebar.
-aboutme_photo: http://7xno1z.com1.z0.glb.clouddn.com/467318976649314125342686826EEB8813A344D80.jpg # your photo.
+# Sidebar settings
+description: 看样子记录一下感想还是十分必要的
+aboutme_photo: http://7xno1z.com1.z0.glb.clouddn.com/467318976649314125342686826EEB8813A344D80.jpg
 
-
-### Site setting:
-ShowContactInfo: "True" # Personal Info (twitter,github,email) can be seen on aboutme-sidebar, those info only shown when ShowContactInfo == True
-default_column: "two" # blog style: two columns, if default_column != "two", you will see a one column blog.
-default_locale: "cn" # blog sidebar language set, only include: English(en) and Chinese (cn)
-
-locales:
-    en:
-      Aboutme: "About Me"
-      Archives: "Archives"
-      Blogroll: "Blogroll"
-      Categories: "Categories"
-      Copyright_Notice: "Copyright Notice"
-      Recent_Posts: "Recent Posts"
-      Tags: "Tags"
-      Previous: "Older"
-      Next: "Newer"
-      PostedInCategories: "Posted in"
-      Taggedwith: "and tagged"  
-      PostDate: "on "
-    cn:
-      Aboutme: "关于我"
-      Archives: "存档"
-      Blogroll: "良师益友"        
-      Categories: "分类目录"    
-      Copyright_Notice: "版权声明"
-      Recent_Posts: "近期文章"
-      Tags: "标签" 
-      Previous: "前一页"
-      Next: "后一页"
-      PostedInCategories: "目录:"   
-      Taggedwith: "| 标签:"
-      PostDate: "| 发表时间: "
+# Social icons
+github: jeffssss
 
 
-### your Blogroll info, only name can shown on the page.
+footer: 码农一枚，没了
 
-# Blogroll:
-#     - name: Freshman21
-#       href: http://yulijia.net/freshman21
-#       title: Another Jekyll blog theme
-#     - name: author's website
-#       href: http://yulijia.net/
-#       title: Lijia Yu's website
-
-
-### Build settings
+# Build settings
 markdown: kramdown
 highlighter: pygments
-paginate: 5
