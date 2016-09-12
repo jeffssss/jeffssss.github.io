@@ -3,9 +3,20 @@ layout: page
 title: About
 permalink: /about/
 ---
+目前在美团点评搬砖。
 
-Taken is a two column minimalist Jekyll theme.
+欢迎和我讨论技术
 
-Taken is based on [chapter tumblr theme.](http://theme-chapter.tumblr.com/)
+你应该和我一样
 
-You can fork taken from [here.](https://github.com/vfalanis/taken)
+热爱各种技术
+
+想变成大牛
+
+但是我懒
+
+已弃疗
+
+加油
+
+呵
