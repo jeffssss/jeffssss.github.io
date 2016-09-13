@@ -16,4 +16,4 @@ footer: 码农一枚，没了
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
