@@ -4,12 +4,17 @@ layout: default
 
 <div class="post-container">
 
- <h2 class="post-title">Category: {{ page.categories }}</h2>
+ <h1 class="post-title">Category:</h1>
 
  <hr>
 
- {% for post in site.categories %}
-   <div class ="post-preview">
+
+
+{% for cat in site.categories %}
+<h2 class="post-title" id="{{ cat[0] }}">{{ cat[0]}}</h2>
+
+{% for post in cat[1] %}
+<div class ="post-preview">
      <span class="post-title">
        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
          {{ post.title }}
@@ -19,31 +24,9 @@ layout: default
      <span class="post-time">
        <p>{{ post.date | date: "%b %-d, %Y" }}</p>
      </span>
-
-
    </div>
-
-   {% endfor %}
-
-
-   <ul class="tags-box">
-{% for cat in site.categories %}
-<a href="#{{ cat[0] }}" title="{{ cat[0] }}" rel="{{ cat[1].size }}">{{ cat[0] | join: "/"}}<span class="size"> {{ cat[1].size }}</span></a>
-{% endfor %}
-</ul>
-
-<ul class="tags-box">
-{% for cat in site.categories %}
-<li id="{{ cat[0] }}">{{ cat[0]}}</li>
-{% for post in cat[1] %}
-<time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time> &raquo;
-<a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br />
 {% endfor %}
 {% endfor %}
-{% else %}
-<span>No posts</span>
-{% endif %}
-</ul>
 
 
 
