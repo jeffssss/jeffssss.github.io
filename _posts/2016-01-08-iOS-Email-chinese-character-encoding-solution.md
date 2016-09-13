@@ -1,9 +1,10 @@
 ---
-published: true
-title: iOS发送邮件及其中文乱码解决方法
 layout: post
-author: Jeffssss 
-category: iOS
+published: true
+title:  iOS发送邮件及其中文乱码解决方法
+date:   2016-01-08 22:04:17 -0500
+comments: true
+categories: iOS
 tags:
 - iOS
 - mail

@@ -1,9 +1,10 @@
 ---
-published: true
-title: Hello World!
 layout: post
-author: Jeffssss 
-category: None
+published: true
+title:  Hello World!
+date:   2015-09-17 22:04:17 -0500
+comments: true
+categories: None
 tags:
 - None
 

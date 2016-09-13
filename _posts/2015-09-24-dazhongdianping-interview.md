@@ -1,9 +1,10 @@
 ---
-published: true
-title: 大众点评面经
 layout: post
-author: Jeffssss 
-category: 面试
+published: true
+title:  大众点评面经
+date:   2015-09-24 22:04:17 -0500
+comments: true
+categories: 面试
 tags:
 - 面试
 

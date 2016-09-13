@@ -1,9 +1,10 @@
 ---
-published: true
-title: 贝贝  笔面试记录 iOS
 layout: post
-author: Jeffssss 
-category: 面试
+published: true
+title:  贝贝  笔面试记录 iOS
+date:   2015-10-20 22:04:17 -0500
+comments: true
+categories: 面试
 tags:
 - 面试
 
