@@ -15,5 +15,6 @@ github: jeffssss
 footer: 码农一枚，没了
 
 # Build settings
-markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
 highlighter: rouge

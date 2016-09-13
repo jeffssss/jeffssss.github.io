@@ -60,7 +60,7 @@ skpsmtpmessage 简单的封装了SMTP协议，让你的app可以发送邮件。�
 
 直接放代码吧，使用上很方便直观。
 
-{% highlight objectivec linenos %}
+```objectivec
 SKPSMTPMessage *testMsg = [[SKPSMTPMessage alloc] init];
 testMsg.fromEmail = @"your email";
 testMsg.toEmail = @"target email";
@@ -78,23 +78,25 @@ testMsg.parts = [NSArray arrayWithObjects:plainPart,nil];
 dispatch_async(dispatch_get_main_queue(), ^{
    [testMsg send];
 });
-{% endhighlight %}
+```
+
 
 你也可以添加附件，除了以上代码，你需要做的是
 
 首先，添加附件块
 
-{% highlight objectivec linenos %}
+```objectivec
 NSString *vcfPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"vcf"];
 NSData *vcfData = [NSData dataWithContentsOfFile:vcfPath]; 
 NSDictionary *vcfPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"test.vcf\"",kSKPSMTPPartContentTypeKey,@"attachment;\r\n\tfilename=\"test.vcf\"",kSKPSMTPPartContentDispositionKey,[vcfData encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil]; 
-{% endhighlight %}
+```
 
 然后，在test.parts中加上刚才的附件块
 	
-{% highlight objectivec %}
+
+```objectivec
 testMsg.parts = [NSArray arrayWithObjects:plainPart,vcfPart,nil];
-{% endhighlight %}
+```
 	
 以上代码大部分来自skpsmtpmessage提供的Demo，需要注意的是，demo中使用多线程发送邮件，而我刚才的代码是在主线程发送邮件，原因是，在多线程环境，邮件无法发送成功。这与其内部机制有关，我暂时没看出个所以然。看以后会不会有兴趣研究研究。
 
@@ -104,15 +106,17 @@ testMsg.parts = [NSArray arrayWithObjects:plainPart,vcfPart,nil];
 
 成功，调用：
 
-{% highlight objectivec  %}
+
+```objectivec
 - (void)messageSent:(SKPSMTPMessage *)message;
-{% endhighlight %}
+```
 
 失败，调用：
 
-{% highlight objectivec %}
+
+```objectivec
 - (void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error;
-{% endhighlight %}
+```
 
 
 <h2 id="biaoti">标题中文乱码解决方法</h2>
@@ -123,14 +127,16 @@ testMsg.parts = [NSArray arrayWithObjects:plainPart,vcfPart,nil];
 
 SKPSMTPMessage.m的sendParts里
 
-{% highlight objectivec %}
+
+```objectivec
 NSData *messageData = [message dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-{% endhighlight %}
+```
+
 改为
 
-{% highlight objectivec %}
+```objectivec
 NSData *messageData = [message dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-{% endhighlight %}
+```
 
 之前用ASCII的编码，所以会乱码。现在改为utf8就好了。
 
@@ -143,22 +149,23 @@ NSData *messageData = [message dataUsingEncoding:NSUTF8StringEncoding allowLossy
 用上面的附件代码，修改一下即可。修改前：
 
 
-{% highlight objectivec linenos %}
+
+```objectivec
 NSString *vcfPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"vcf"];
 NSData *vcfData = [NSData dataWithContentsOfFile:vcfPath]; 
 NSDictionary *vcfPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"测试.vcf\"",kSKPSMTPPartContentTypeKey,@"attachment;\r\n\tfilename=\"测试.vcf\"",kSKPSMTPPartContentDispositionKey,[vcfData encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil]; 
-{% endhighlight %}
+```
 
 以上代码，文件名为 `测试.vcf`，当作为附件发送到目标邮箱后，用户下载邮件，附件文件名为乱码.
 
 但是可以修改成一下形式
 
-{% highlight objectivec linenos %}
+```objectivec
 NSString *vcfPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"vcf"];
 NSString *encodeFileName = [NSString stringWithFormat:@"=?UTF-8?B?%@?=",[[@"测试.vcf" dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0]];
 NSData *vcfData = [NSData dataWithContentsOfFile:vcfPath]; 
 NSDictionary *vcfPart = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"%@\"",encodeFileName],kSKPSMTPPartContentTypeKey,[NSString stringWithFormat:@"attachment;\r\n\tfilename=\"%@\"",encodeFileName],kSKPSMTPPartContentDispositionKey,[vcfData encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil]; 
-{% endhighlight %}
+```
 
 其中的重点是修改了filename，对其进行处理。
 
