@@ -4,9 +4,9 @@ published: true
 title:  Hello World!
 date:   2015-09-17 22:04:17 -0500
 comments: true
-categories: None
+categories: 生活
 tags:
-- None
+- 生活
 
 ---
 
