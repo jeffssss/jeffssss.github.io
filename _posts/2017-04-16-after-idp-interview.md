@@ -4,6 +4,7 @@ title: 从IDP面谈聊开去
 layout: post
 author: Jeffssss 
 category: 生活
+comments: true
 tags:
 - 生活
 ---

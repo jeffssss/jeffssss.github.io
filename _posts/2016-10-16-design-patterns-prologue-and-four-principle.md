@@ -3,6 +3,7 @@ published: true
 title: 设计模式学习记录-Prologue&四个原则
 layout: post
 author: Jeffssss 
+comments: true
 category: 设计模式
 tags:
 - 设计模式

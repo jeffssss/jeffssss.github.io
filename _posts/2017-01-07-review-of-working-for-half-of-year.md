@@ -3,6 +3,7 @@ published: true
 title: 工作半年的一些思考
 layout: post
 author: Jeffssss 
+comments: true
 category: 生活
 tags:
 - 生活
