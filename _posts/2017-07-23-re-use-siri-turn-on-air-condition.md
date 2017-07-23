@@ -267,12 +267,6 @@ RASPBIAN JESSIE LITE`, 下载后解压。
 		LIRCMD_CONF=""
 		```
 		
-	5. 	录制红外信号
-		
-		```
-		irrecord  -f -d /dev/lirc0 ~/fanraw.conf
-		```
-		
 	6. 录制完后，你录制的文件应该类似以下：
 
 		```
