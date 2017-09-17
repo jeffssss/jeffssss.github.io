@@ -46,11 +46,11 @@ LSP的目的在于解决市场上多语言与多编辑器的问题。如果m个�
 4. 当用户想要查询某个变量的声明，编辑器会发送`definition`请求，服务器会返回对应文件的URI以及文件内的定位信息Range，编辑器会跳转到RI指定的文件以及Range指定的位置。
 5. 当用户关闭文件，编辑器会发送`didClose`通知，服务器会吧文件保存在文件系统并且释放掉内存里的相关内容。
 
-### 协议内容简介
-
 查看了一下LSP的Git信息，LSP Star数为1805，Fork 135，Watch 151。LSP的协议内容的上一次修改是在4天前(2017-09-14)，目前版本是3.0，协议中的方法共计40个。LSP 2.x版本的最后一次提交日期是2016-10-21，协议中的方法共计33个。个人感觉：1. LSP在开源社区中发展良好，2. LSP逐渐稳定，协议内容不会有大的变化(不会像Python或者Swift)
 
-LSP按消息的类型共分为：
+### 协议内容简介
+
+LSP的消息类型共5种。
 
 1. General
 	
@@ -125,15 +125,15 @@ LSP各个语言的实现请求可以在LSP开源社区[langserver.org](http://la
 
 截止目前，大部分主流语言均有对应的Language Server。部分语言，例如C#、Java有多个不同厂商提供的Language Server。同时，部分主流编辑器和IDE也纷纷支持LSP，包括Eclipse、VScode、Sublime Text & Sublime Text 3、Atom、Emacs、Vim等等。
 
-这样看来，LSP现在的发展形势可以说是很不错，已经在IDE改革的道路上稳步前行。
+这样看来，LSP现在的发展形势可以说是很不错，感觉已经在改革IDE的道路上稳步前行。
 
 ## Language Server体验
 
-为了了解LSP的效果，我决定亲自体验一番。因为我工作中使用Java语言开发，所以也决定体验一下Java的Language Server。
+为了了解LSP的效果，我决定亲自体验一番。我工作中使用Java语言开发，于是决定体验一下Java版的Language Server。
 
 使用工具为
 
-* 编辑器：VScode(据说体验很不错)
+* 编辑器：VScode(微软出品，据说体验很不错)
 * 插件 [Language support for Java ™ for Visual Studio Code](https://github.com/redhat-developer/vscode-java)。(VScode默认不提供Java的Language Server，所以需要下载Java插件，这个插件由RedHat提供，底层Language Server采用了Eclipse Foundation以及RedHat联合出品的[eclipse.jdt.ls](https://github.com/eclipse/eclipse.jdt.ls))
 
 我试验了如下功能：
@@ -150,15 +150,16 @@ LSP各个语言的实现请求可以在LSP开源社区[langserver.org](http://la
 
 4. 查询某个变量的定义，能够自动跳转到变量的定义或者声明位置
 	
-5. 点击某个方法，出现方法的定义信息
+5. 点击某个方法，出现方法的定义信息，同时会展示方法的具体实现(解决了我的一个痛点！好评！)
 
 	![function info](/img/function info.png)
 	
-6. 查询某个方法的引用，能否查询到该方法被使用的地方。
+6. 查询某个方法的引用，查询到该方法被使用的地方。
 
 	![find usages](/img/find usages.png)
 	
-通过设置`java.trace.server`变量，我们能在控制台看到VScode与Language Server交互的具体信息。
+
+除此之外，通过设置`java.trace.server`变量，我们能在控制台看到VScode与Language Server交互的具体信息。
 
 ```
 [Trace - 02:47:09] Sending request 'textDocument/hover - (110)'.
@@ -184,10 +185,12 @@ Params: {
 }
 ```
 
-仅从体验来说，和IDEA的差距不大，能够满足日常开发中，大部分的coding工作。查询是否有BUG、查询速度快慢等等更细节的问题，需要去细心测试才能发现，但是从第一印象来说，VScode + Language Server的体验给我眼前一亮的感觉。
+从Java语法功能来说，和IDEA的差距不大，能够满足日常开发中，大部分的coding工作。至于查询是否有BUG、查询速度快慢等等更细节的问题，需要去仔细测试才能得到答案。但是从第一印象来说，VScode + Language Server的体验给我眼前一亮的感觉。
 
 ## 最后
 
-对于使用JavaScript、Python等脚本语言的同学来说，LSP会给你开发环境的新选择，你可以通过选择自己喜欢或者熟悉的编辑器并搭配口碑优秀的Language Server来提高开发效率，再也不用等待臃肿的IDE响应你的操作了。
+对于使用JavaScript、Python等脚本语言的同学来说，LSP会给你开发环境的新选择，你可以通过选择自己喜欢或者熟悉的编辑器并搭配口碑优秀的Language Server来提高开发效率，再也不用等待臃肿的IDE(我就是指的WebStorm)响应你的操作了。
 
 对于写Java的同学，目前还是用IDEA吧。虽然现在LSP的出现能够让编辑器支持Java语法以及代码分析的功能，但是有很多Java开发中必要的功能没有得到支持，比如运行程序，调试程序，就算有相应的Java插件能够支持，我想也没有直接使用IDE方便吧。
+
+最后，希望LSP能够越走越远，一统江山。(一口毒奶)
