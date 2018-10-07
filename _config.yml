@@ -6,7 +6,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 
 # Sidebar settings
 description: 看样子记录一下感想还是十分必要的
-aboutme_photo: http://7xno1z.com1.z0.glb.clouddn.com/467318976649314125342686826EEB8813A344D80.jpg
+aboutme_photo: /img/aboutme_photo.jpg
 
 # Social icons
 github: jeffssss
